@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pembayaran Suhai JPM</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff4d4d, #ffffff);
+    text-align: center;
+    color: #333;
+}
+
+/* Halaman awal */
+#welcome {
+    padding: 100px 20px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    background: #ff4d4d;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e60000;
+}
+
+/* Halaman pembayaran */
+#payment {
+    display: none;
+    padding: 30px;
+}
+
+/* QR */
+.qr img {
+    width: 250px;
+    border-radius: 10px;
+}
+
+/* Nomor */
+.copy-box {
+    background: white;
+    padding: 10px;
+    margin: 10px auto;
+    width: 250px;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: all;
+}
+
+/* Disable copy selain nomor */
+.no-copy {
+    user-select: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HALAMAN AWAL -->
+<div id="welcome">
+    <h2 class="no-copy">👋 Halo kak selamat datang di pembayaran Suhai JPM 💸</h2>
+    <p class="no-copy">Klik kak untuk pembayaran 👇</p>
+    <button onclick="showPayment()">Klik Pembayaran</button>
+</div>
+
+<!-- HALAMAN PEMBAYARAN -->
+<div id="payment">
+
+    <h3 class="no-copy">📷 Scan QRIS di bawah ini ya kak</h3>
+
+    <div class="qr">
+        <img src="qris.jpg" alt="QRIS">
+    </div>
+
+    <p class="no-copy">💳 Atau bisa lewat nomor di bawah ini 👇</p>
+
+    <div class="copy-box" onclick="copyText('087864484313')">
+        DANA: 087864484313 (tap untuk salin)
+    </div>
+
+    <div class="copy-box" onclick="copyText('087864484313')">
+        GOPAY: 087864484313 (tap untuk salin)
+    </div>
+
+    <p class="no-copy">📌 Atas nama:</p>
+    <p class="no-copy">DANA: irmayani</p>
+    <p class="no-copy">GOPAY: rizki</p>
+
+    <br>
+
+    <p class="no-copy">📩 Jika sudah membayar, silakan kirim bukti ke Suhai JPM ya kak 🙏</p>
+
+</div>
+
+<script>
+function showPayment() {
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("payment").style.display = "block";
+}
+
+function copyText(text) {
+    navigator.clipboard.writeText(text);
+    alert("Nomor berhasil disalin 👍");
+}
+</script>
+
+</body>
+</html>
